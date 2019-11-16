@@ -1,16 +1,17 @@
 import java.util.ArrayList;
-
-public class Member {
-	private String firstname;
-	private String lastname;
-	private int age;
-	private int height;
-	private int weight;
-	private int BPsyst;
-	private int BPdias;
-	private String cancer;
-	private String diabetes;
-	private String alzheimers;
+import java.io.Serializable;
+public class Member implements Serializable {
+	String firstname;
+	String lastname;
+	int age;
+	int height;
+	int weight;
+	int BPsyst;
+	int BPdias;
+	String cancer;
+	String diabetes;
+	String alzheimers;
+	
 	public String getFirstname() {
 		return firstname;
 	}
@@ -76,6 +77,7 @@ public class Member {
 		lastname = "";
 		age = 0;
 		weight = 0;
+		height = 0;
 		BPsyst = 0;
 		BPdias = 0;
 		cancer = "";
@@ -95,7 +97,8 @@ public class Member {
 		setDiabetes(diabetes);
 		setAlzheimers(alzheimers);
 	}
-	@Override
+	
+	
 	public String toString() {
 		return String.format("%s" + "," + "%s\n" + "Age" + "%23d\n" + "Height"
 				+ "%20d" + " in\n" + "Weight" + "%20d" + " lbs\n" + "BP Syst"
@@ -103,5 +106,12 @@ public class Member {
 				+ "Diabetes" + "%18s\n" + "Alzheimers" + "%16s\n"
 				+ "--------------------------------\n",lastname,firstname,age,height,
 				weight,BPsyst,BPdias,cancer,diabetes,alzheimers);
+	}
+	public String toString2() {
+		return String.format("%s" + "\t" + "%s" + "\t" + "%d" + 
+				"\t" + "%d" + "\t" + "%d" + "\t" + "%d" + "\t"
+				+ "%d" + "\t" + "%s" + "\t" + "%s" + "\t" + "%s",
+				firstname, lastname, age, height, weight, BPsyst,
+				BPdias, cancer, diabetes, alzheimers);
 	}
 }
